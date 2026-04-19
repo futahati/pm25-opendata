@@ -53,7 +53,7 @@ def open_db():
         conn = pymysql.connect(
             host=os.getenv("HOST"),
             port=int(os.getenv("PORT")),
-            user=os.getenv("USERNAME"),
+            user=os.getenv("NAME"),
             password=os.getenv("PASSWORD"),
             database=os.getenv("DATABASE"),
             ssl={"ca":None}
