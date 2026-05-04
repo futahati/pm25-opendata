@@ -12,6 +12,7 @@ jobs:
     # 強制所有 Actions 使用 Node 24 執行，消除 Node 20 棄用警告
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      TZ: Asia/Taipei
 
     steps:
       - name: Checkout code
@@ -31,7 +32,6 @@ jobs:
           fi
 
       - name: Run script
-        run: python pm25.py
         env:
           # 將您的 Secret 變數注入環境
           HOST: ${{ secrets.HOST }}
@@ -39,3 +39,4 @@ jobs:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
           NAME: ${{ secrets.NAME }}
+        run: python pm25.py
